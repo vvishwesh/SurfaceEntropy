@@ -1,1 +1,4 @@
 
+## This folder contains 
+1) the software executable "GENSURF" to create molecular surfaces.
+2) An R-script file to calculate entropy from the surface curvatures.  
