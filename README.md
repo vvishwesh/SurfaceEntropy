@@ -34,9 +34,13 @@ The above command generates a `paracetamol.srf` file which acts as input for the
 If the user is interested in visualizing the color-coded molecular surface, `GENSURF` outputs files for visualization in 2 formats: X3D and OFF and can be visualized using 3D mesh software such as `MeshLab` (https://www.meshlab.net/).
 
 `./GENSURF -lig EXAMPLES/paracetamol.pqr -x3d -sigma 0.1 -prop CURV -n 60`
+
 `./GENSURF -lig EXAMPLES/paracetamol.pqr -x3d -sigma 0.1 -prop SI -n 60`
+
 `./GENSURF -lig EXAMPLES/paracetamol.pqr -off -sigma 0.1 -prop CURV -n 60`
+
 `./GENSURF -lig EXAMPLES/paracetamol.pqr -off -sigma 0.1 -prop SI -n 60`
+
 
 
 ### Entropy Computation
