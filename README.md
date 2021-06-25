@@ -57,7 +57,7 @@ The entropy computation script `calculate_surface_shape_entropy.R` takes 2 argum
 
 `/usr/bin/Rscript calculate_surface_shape_entropy.R paracetamol.srf 64`
 
-The script writes out the entropies based on the shape index and the curvedness to the console.
+The script writes out the entropies based on the <ins>shape index</ins> and the <ins>curvedness</ins> to the console.
 
 
 
