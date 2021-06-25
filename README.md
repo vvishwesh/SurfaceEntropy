@@ -5,7 +5,7 @@ The software presented here is a **SH**ape-based **A**ccurate **P**redictor of *
 ## Usage
 The `Software`directory contains the **LINUX** executable `GENSURF` and an **R** (https://www.r-project.org/) script `calculate_surface_shape_entropy.R` to help with the (i) creation of the molecular surface and (ii) the entropy computation. The starting point for the computation is the preparation of the 3D structure of the small molecule in `pqr` format. The user can use `OpenBabel` (http://openbabel.org/wiki/Main_Page) for generation of the 3D structure and format interconversion.  
 
-`
+```
 Usage:GENSURF [options]
 
 Options:
@@ -22,7 +22,7 @@ Options:
   -reduce          reduce surface triangulation
   -grid value      extend Cartesian grid [default: 2.0]
   -ofile           outputfile [default: inherit name from ligand]
-`
+```
 
 ### Molecular Surface Property Calculation
 Surface property calculations can be carried out as follows: 
