@@ -10,7 +10,7 @@ nbins = as.integer(args[2])
 
 
 ## Create connection
-con <- file(description = srffile, open="r")
+con <- file(description=srffile, open="r")
 foundXYZ = FALSE
 foundFaces = FALSE
 cnames <- NULL
@@ -20,7 +20,11 @@ facelist <- list()
 i <- 1
 
 ## Loop over a file connection
+#for(i in 1:n) {
 while (length(line <- readLines(con, n = 1, warn = FALSE)) > 0) {
+    #line <- scan(file=con, nlines=1, quiet=TRUE)
+
+    #cat(line, "\n")
 
     if (startsWith(line, "# Area"))
     {
@@ -81,6 +85,8 @@ faces <- data.frame(matrix(unlist(facelist), nrow=length(facelist), byrow=T),str
 colnames(faces) <- c("F1", "F2", "F3", "Area")
 rm(facelist)
 
+
+
 SHPIDX <- numeric(nrow(faces))
 CURV <- numeric(nrow(faces))
 
@@ -98,9 +104,11 @@ for (i in 1:nrow(faces)) {
 
 nr = nrow(faces)
 
+
 Area <- as.numeric(faces$Area)
 rm(df)
 rm(faces)
+
 
 CURV[is.nan(CURV)] <- NA
 SHPIDX[is.nan(SHPIDX)] <- NA
@@ -116,21 +124,18 @@ curv_entropy = 0
 shpidx_entropy = 0
 
 
-val_shpidx = 0
-val_curv = 0
-
 for (i in 1:nr) {
-
+    
     val_shpidx = 0
     val_curv = 0
-
+    
     value <- CURV[i]
     if (!is.na(value)) {
         idx <- findInterval(value, hst_CURV$breaks, all.inside = TRUE)
         p = hst_CURV$counts[idx]/nr
         xval = p * log2(p)
         if (!is.na(xval)) {
-            val_curv = val_curv + xval
+            val_curv = xval
         }
     }
 
@@ -140,12 +145,14 @@ for (i in 1:nr) {
         p = hst_SHPIDX$counts[idx]/nr
         xval = p * log2(p)
         if (!is.na(xval)) {
-            val_shpidx = val_shpidx + xval
+            val_shpidx = xval
         }
     }
 
+    
     curv_entropy = curv_entropy + val_curv * Area[i]
     shpidx_entropy = shpidx_entropy + val_shpidx * Area[i]
+    
 }
 
 curv_entropy = curv_entropy * (-1)
