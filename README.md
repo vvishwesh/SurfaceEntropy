@@ -36,7 +36,7 @@ sudo apt install r-base
 ### Molecular Surface Property Calculation
 Surface property calculations can be carried out as follows: 
 
-`./GENSURF -lig Examples/paracetamol.pqr -sigma 0.1 -prop ALL -n 60`
+`./GENSURF -lig Examples/paracetamol.pqr -sigma 0.1 -prop ALL -n 90 -reduce -iso 1.0`
 
 The above command generates a `paracetamol.srf` file which acts as input for the entropy computation script.
 
