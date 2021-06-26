@@ -38,7 +38,9 @@ Surface property calculations can be carried out as follows:
 
 `./GENSURF -lig Examples/paracetamol.pqr -sigma 0.1 -prop ALL -n 90 -reduce -iso 1.0`
 
-The above command generates a `paracetamol.srf` file which acts as input for the entropy computation script.
+The above command generates a `paracetamol.srf` file which acts as input for the entropy computation script. `GENSURF` does not include hydrogens in the surface definition. To add hydrogens to the surface, run the followin command:
+
+`./GENSURF -lig Examples/paracetamol.pqr -sigma 0.1 -prop ALL -n 90 -reduce -iso 1.0 -addh`
 
 If the user is interested in visualizing the color-coded molecular surface, `GENSURF` outputs files for visualization in 2 formats: X3D and OFF and can be visualized using 3D mesh software such as `MeshLab` (https://www.meshlab.net/).
 
