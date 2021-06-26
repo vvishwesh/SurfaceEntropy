@@ -34,11 +34,12 @@ sudo apt install r-base
 ```
 
 ### Molecular Surface Property Calculation
-Surface property calculations can be carried out as follows: 
+`GENSURF` accepts `pqr` files as input and generates an output file (`.srf` extension) containing the surface triangulation and shape properties calculated at the vertices.  
+Surface generation and shape property calculations can be carried out as follows: 
 
 `./GENSURF -lig Examples/paracetamol.pqr -sigma 0.1 -prop ALL -n 90 -reduce -iso 1.0`
 
-The above command generates a `paracetamol.srf` file which acts as input for the entropy computation script. `GENSURF` does not include hydrogens in the surface definition. To add hydrogens to the surface, run the followin command:
+The above command generates a `paracetamol.srf` file which acts as input for the entropy computation script. `GENSURF` does not include hydrogens in the surface definition. To add hydrogens to the surface, run the following command:
 
 `./GENSURF -lig Examples/paracetamol.pqr -sigma 0.1 -prop ALL -n 90 -reduce -iso 1.0 -addh`
 
